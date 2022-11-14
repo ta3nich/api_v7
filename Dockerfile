@@ -38,7 +38,7 @@ COPY import_sql.sh /import_sql.sh
 COPY run.sh /run.sh
 
 ENV MYSQL_USER=admin \
-    MYSQL_PASS=**Random** \
+    MYSQL_PASS=Pwd123321 \
     ON_CREATE_DB=**False** \
     REPLICATION_MASTER=**False** \
     REPLICATION_SLAVE=**False** \
