@@ -133,7 +133,8 @@ fi
 
 echo "=> Starting MySQL ..."
 StartMySQL
-tail -F $LOG &
+node server.js
+#tail -F $LOG &
 
 # Create admin user and pre create database
 if [ -f /var/lib/mysql/.EMPTY_DB ]; then
