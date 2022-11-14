@@ -7,13 +7,14 @@ FROM node:16
 #RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN cat /etc/apt/sources.list
 RUN uname -a
-RUN apt-get update && apt-get install -y mysql-server
+RUN apt-get update 
+#&& apt-get install -y mariadb-server
 
 # MySQL
-#ENV MYSQL_PWD Pwd123
-#RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
-#RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
-#RUN apt-get -y install mysql-server
+ENV MYSQL_PWD Pwd123
+RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
+RUN apt-get -y install mariadb-server
 # MySQL
 
 #ENV MYSQL_PWD Pwd123
