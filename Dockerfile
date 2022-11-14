@@ -20,7 +20,10 @@ RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf
 RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
 RUN apt-get -y install mariadb-server  pwgen && \
     rm -rf /var/lib/apt/lists/* && \
-    cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf
+    cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf && \
+    mysql_install_db > /dev/null 2>&1  && \
+    touch /var/lib/mysql/.EMPTY_DB
+    
     #&& \
     #if [ ! -f /usr/share/mysql/my-default.cnf ] ; then cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf; fi && \
    # mysql_install_db > /dev/null 2>&1 && \
