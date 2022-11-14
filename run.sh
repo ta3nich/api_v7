@@ -192,3 +192,4 @@ fi
 service mysql start
 #systemctl daemon-reload
 #systemctl start mysql
+mysqld &
