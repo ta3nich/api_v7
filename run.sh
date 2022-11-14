@@ -189,7 +189,7 @@ if [ -n "${REPLICATION_SLAVE}" ]; then
 fi
 
 #fg
-systemctl enable mysql
-systemctl daemon-reload
+service mysql start
+#systemctl daemon-reload
 
-systemctl start mysql
+#systemctl start mysql
