@@ -77,11 +77,11 @@ RUN find /usr/src/app/ -name '*.sh' -exec chmod a+x {} +
 
 
 
-CMD ["/run.sh"]
+
 RUN update-rc.d mysql enable
 RUN service mysql start
-
-CMD [ "mysqld","&","node", "server.js" ]
+CMD ["/run.sh"]
+CMD [ "node", "server.js" ]
 
 
 #CMD [  ]
