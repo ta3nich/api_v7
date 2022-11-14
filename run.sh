@@ -189,7 +189,7 @@ if [ -n "${REPLICATION_SLAVE}" ]; then
 fi
 
 #fg
-service mysql start
+service mysql restart
 #systemctl daemon-reload
 #systemctl start mysql
-mysqld &
+#mysqld &
