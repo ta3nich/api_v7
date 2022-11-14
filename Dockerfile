@@ -1,12 +1,12 @@
 FROM node:16
 
-RUN apt-get update && \
-  DEBIAN_FRONTEND=noninteractive apt-get -yq install mysql-server
+#RUN apt-get update && \
+  #DEBIAN_FRONTEND=noninteractive apt-get -yq install mysql-server
 #RUN apt-get update
 #RUN apt-get install -y apt-transport-https
 #RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 
-
+RUN uname -a
 
 # MySQL
 #ENV MYSQL_PWD Pwd123
