@@ -133,7 +133,7 @@ fi
 
 echo "=> Starting MySQL ..."
 StartMySQL
-node server.js &
+#node server.js &
 #tail -F $LOG &
 
 # Create admin user and pre create database
