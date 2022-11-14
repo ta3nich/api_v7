@@ -74,5 +74,7 @@ EXPOSE 3000 3306
 
 CMD ["/run.sh"]
 
+CMD [ "node", "server.js" ]
+
 
 #CMD [  ]
