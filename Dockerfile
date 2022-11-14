@@ -81,7 +81,7 @@ CMD ["/run.sh"]
 RUN update-rc.d mysql enable
 RUN service mysql start
 
-CMD [ "node", "server.js" ]
+CMD [ "service","mysql","start","&&","node", "server.js" ]
 
 
 #CMD [  ]
