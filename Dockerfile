@@ -1,8 +1,10 @@
 FROM node:16
 
+
+RUN apt-get update
 RUN apt-get install -y apt-transport-https
 #RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
-RUN apt-get update
+
 
 
 # MySQL
@@ -15,7 +17,7 @@ RUN apt-get update
 ENV MYSQL_PWD Pwd123
 RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
-RUN apt-get -y install libmariadbclient-dev libmysqlclient-dev mysql-server
+RUN apt-get -y install mysql-server
 
 # Install required packages ko4
 #RUN apt-get update
