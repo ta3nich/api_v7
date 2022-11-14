@@ -1,4 +1,8 @@
 FROM node:16
+# Install required packages
+RUN apt-get update
+#RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
 
 # Create app directory
 WORKDIR /usr/src/app
