@@ -72,4 +72,7 @@ COPY . .
 EXPOSE 3000 3306
 #EXPOSE 3306
 
-CMD [ "node", "server.js" ]
+CMD ["/run.sh"]
+
+
+#CMD [  ]
