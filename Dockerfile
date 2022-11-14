@@ -49,7 +49,6 @@ ENV MYSQL_USER=admin \
 # Add VOLUMEs to allow backup of config and databases
 VOLUME  ["/etc/mysql", "/var/lib/mysql"]
 
-EXPOSE 3306
 # Install required packages ko4
 #RUN apt-get update
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
@@ -70,5 +69,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 3000
+EXPOSE 3000 3306
+#EXPOSE 3306
+
 CMD [ "node", "server.js" ]
