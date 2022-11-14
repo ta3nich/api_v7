@@ -1,5 +1,10 @@
 FROM node:16
 
+
+#RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update
+
+
 # MySQL
 #ENV MYSQL_PWD Pwd123
 #RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
@@ -13,7 +18,7 @@ RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | d
 RUN apt-get -y install libmariadbclient-dev libmysqlclient-dev mysql-server
 
 # Install required packages ko4
-RUN apt-get update
+#RUN apt-get update
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
 
