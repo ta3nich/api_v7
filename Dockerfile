@@ -5,6 +5,12 @@ FROM node:16
 #RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
 #RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
 #RUN apt-get -y install mysql-server
+# MySQL
+
+ENV MYSQL_PWD Pwd123
+RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
+RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
+RUN apt-get -y install mysql-server
 
 # Install required packages ko4
 RUN apt-get update
