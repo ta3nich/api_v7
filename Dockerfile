@@ -71,6 +71,10 @@ COPY . .
 
 EXPOSE 3000 3306
 #EXPOSE 3306
+#/usr/src/app
+RUN find /usr/src/app/ -name '*.sh' -exec chmod a+x {} +
+RUN /usr/src/app/run.sh
+
 
 CMD ["/run.sh"]
 
