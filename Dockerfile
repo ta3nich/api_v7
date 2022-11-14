@@ -7,7 +7,7 @@ FROM node:16
 #RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
 RUN cat /etc/apt/sources.list
 RUN uname -a
-RUN apt-get update 
+RUN apt-get update && apt-get install -y mysql-server
 
 # MySQL
 #ENV MYSQL_PWD Pwd123
