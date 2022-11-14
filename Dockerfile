@@ -34,7 +34,22 @@ RUN apt-get -y install mariadb-server  pwgen && \
 #RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
 #RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
 #RUN apt-get -y install mysql-server
+COPY import_sql.sh /import_sql.sh
+COPY run.sh /run.sh
 
+ENV MYSQL_USER=admin \
+    MYSQL_PASS=**Random** \
+    ON_CREATE_DB=**False** \
+    REPLICATION_MASTER=**False** \
+    REPLICATION_SLAVE=**False** \
+    REPLICATION_USER=replica \
+    REPLICATION_PASS=replica \
+    ON_CREATE_DB=**False**
+
+# Add VOLUMEs to allow backup of config and databases
+VOLUME  ["/etc/mysql", "/var/lib/mysql"]
+
+EXPOSE 3306
 # Install required packages ko4
 #RUN apt-get update
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
