@@ -6,7 +6,7 @@ RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf
 RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
 #RUN apt-get -y install mysql-server
 
-# Install required packages ko
+# Install required packages ko4
 RUN apt-get update
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install mysql-server
