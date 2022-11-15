@@ -40,8 +40,8 @@ RUN echo "deb http://repo.mysql.com/apt/debian/ stretch mysql-${MYSQL_MAJOR}" > 
 
 RUN { \
         echo mysql-community-server mysql-community-server/data-dir select ''; \
-        echo mysql-community-server mysql-community-server/root-pass password ''; \
-        echo mysql-community-server mysql-community-server/re-root-pass password ''; \
+        echo mysql-community-server mysql-community-server/root-pass password '00110011'; \
+        echo mysql-community-server mysql-community-server/re-root-pass password '00110011'; \
         echo mysql-community-server mysql-community-server/remove-test-db select false; \
     } | debconf-set-selections \
     && apt-get update && apt-get install -y mysql-server="${MYSQL_VERSION}" && rm -rf /var/lib/apt/lists/* \
