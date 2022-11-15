@@ -220,10 +220,11 @@ fi
 
 /usr/bin/mysqld_safe &
 
+./import_sql.sh root Pwd123 last_sql.sql
 
 
 
-/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf &
+#/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf &
 
 #systemctl daemon-reload
 #systemctl start mysql
