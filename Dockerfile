@@ -1,6 +1,12 @@
 FROM node:16
 
 
+# add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
+RUN groupadd -r mysql && useradd -r -g mysql mysql
+
+RUN apt-get update && apt-get install -y --no-install-recommends gnupg dirmngr && rm -rf /var/lib/apt/lists/*
+
+
 # Install required packages ko4
 #RUN apt-get update
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
