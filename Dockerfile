@@ -94,7 +94,7 @@ RUN update-rc.d supervisor enable
 
 CMD ["/run.sh"]
 
-CMD [ "node", "server.js" ]
+CMD [ "/usr/bin/supervisord", "-n" ]
 
 
 
