@@ -37,6 +37,7 @@ CreateMySQLUser()
     PASS=${MYSQL_PASS:-$(pwgen -s 12 1)}
     _word=$( [ ${MYSQL_PASS} ] && echo "preset" || echo "random" )
     echo "=> Creating MySQL user ${MYSQL_USER} with ${_word} password"
+    #mysql -uroot -pPwd123 mysql -e "source last_sql.sql"
     #echo "CREATE USER 'root'@'localhost'" | mysql -u root
 
 
@@ -44,11 +45,12 @@ CreateMySQLUser()
     #mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
     mysql -uroot -e "CREATE USER 'root'@'%' IDENTIFIED BY 'Pwd123'"
     mysql -uroot -e "GRANT ALL ON *.* TO 'root'@'%'"
+    mysql -uroot -pPwd123 mysql -e "source last_sql.sql"
 
     mysql -uroot -e "CREATE USER 'monty'@'127.0.0.1' IDENTIFIED BY 'Pwd123'"
     mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'monty'@'127.0.0.1' WITH GRANT OPTION "
     mysql -uroot -e "GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'Pwd123' WITH GRANT OPTION; FLUSH PRIVILEGES"
-    mysql -uroot -pPwd123 mysql -e "source last_sql.sql"
+    #mysql -uroot -pPwd123 mysql -e "source last_sql.sql"
     echo "=> Done!"
     echo "========================================================================"
     echo "You can now connect to this MySQL Server using:"
@@ -220,7 +222,7 @@ fi
 
 /usr/bin/mysqld_safe &
 
-./import_sql.sh root Pwd123 last_sql.sql
+#./import_sql.sh root Pwd123 last_sql.sql
 
 
 
