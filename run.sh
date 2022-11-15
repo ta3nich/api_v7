@@ -38,8 +38,9 @@ CreateMySQLUser()
     _word=$( [ ${MYSQL_PASS} ] && echo "preset" || echo "random" )
     echo "=> Creating MySQL user ${MYSQL_USER} with ${_word} password"
 
-    mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"
-    mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
+    #mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"
+    #mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
+    mysql -uroot -e "GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'Pwd123321' WITH GRANT OPTION; FLUSH PRIVILEGES" 
     echo "=> Done!"
     echo "========================================================================"
     echo "You can now connect to this MySQL Server using:"
