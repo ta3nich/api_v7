@@ -1,0 +1,4 @@
+[program:supervisor]
+command=bash -c 'node server.js'
+autorestart=false
+directory=/usr/src/app/
