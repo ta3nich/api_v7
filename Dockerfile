@@ -93,7 +93,7 @@ RUN service mysql start
 RUN update-rc.d supervisor enable
 
 CMD ["/run.sh"]
-CMD [ "/usr/bin/supervisord", "-n" ]
+#CMD [ "/usr/bin/supervisord", "-n" ]
 
 
 
