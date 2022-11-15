@@ -37,7 +37,7 @@ CreateMySQLUser()
     PASS=${MYSQL_PASS:-$(pwgen -s 12 1)}
     _word=$( [ ${MYSQL_PASS} ] && echo "preset" || echo "random" )
     echo "=> Creating MySQL user ${MYSQL_USER} with ${_word} password"
-    echo "CREATE USER 'root'@'localhost'" | mysql -u root
+    #echo "CREATE USER 'root'@'localhost'" | mysql -u root
 
 
     #mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"
