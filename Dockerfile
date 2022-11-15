@@ -85,11 +85,13 @@ RUN update-rc.d -f mysql remove
 #RUN update-rc.d mysql enable
 RUN update-rc.d mysql defaults
 RUN service mysql start
-CMD ["/run.sh"]
-CMD ["mysqld"]
-CMD service mysql start
+#CMD ["/run.sh"]
+#CMD ["mysqld"]
+#CMD service mysql start
+ENTRYPOINT ["/run.sh"]
 
 CMD [ "node", "server.js" ]
+
 
 
 #CMD [  ]
