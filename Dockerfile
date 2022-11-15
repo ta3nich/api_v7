@@ -7,6 +7,30 @@ RUN groupadd -r mysql && useradd -r -g mysql mysql
 RUN apt-get update && apt-get install -y --no-install-recommends gnupg dirmngr && rm -rf /var/lib/apt/lists/*
 
 
+RUN mkdir /docker-entrypoint-initdb.d
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+# for MYSQL_RANDOM_ROOT_PASSWORD
+        pwgen \
+# for mysql_ssl_rsa_setup
+        openssl \
+# FATAL ERROR: please install the following Perl modules before executing /usr/local/mysql/scripts/mysql_install_db:
+# File::Basename
+# File::Copy
+# Sys::Hostname
+# Data::Dumper
+        perl \
+    && rm -rf /var/lib/apt/lists/*
+
+
+
+
+
+
+
+
+
+
 # Install required packages ko4
 #RUN apt-get update
 #RUN DEBIAN_FRONTEND=noninteractive apt-get -y install python
