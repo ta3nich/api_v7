@@ -1,7 +1,7 @@
 FROM node:16
 
 COPY my.cnf /etc/mysql/conf.d/my.cnf
-COPY mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
+#COPY mysqld_charset.cnf /etc/mysql/conf.d/mysqld_charset.cnf
 
 
 #RUN apt-get update && \
