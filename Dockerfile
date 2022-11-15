@@ -74,7 +74,11 @@ EXPOSE 3000 3306
 #/usr/src/app
 RUN find /usr/src/app/ -name '*.sh' -exec chmod a+x {} +
 #RUN /usr/src/app/run.sh
+ARG MARIADB_MYSQL_SOCKET_DIRECTORY='/var/run/mysqld'
 
+RUN mkdir -p $MARIADB_MYSQL_SOCKET_DIRECTORY && \
+    chown root:mysql $MARIADB_MYSQL_SOCKET_DIRECTORY && \
+    chmod 774 $MARIADB_MYSQL_SOCKET_DIRECTORY
 
 
 RUN update-rc.d -f mysql remove
