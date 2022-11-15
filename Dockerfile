@@ -93,7 +93,7 @@ RUN service mysql start
 RUN update-rc.d supervisor enable
 
 CMD ["/run.sh"]
-
+RUN import_sql.sh root Pwd123 last_sql.sql
 CMD [ "/usr/bin/supervisord", "-n" ]
 
 
