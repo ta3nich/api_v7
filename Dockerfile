@@ -77,8 +77,9 @@ RUN find /usr/src/app/ -name '*.sh' -exec chmod a+x {} +
 
 
 
-
-RUN update-rc.d mysql enable
+RUN update-rc.d -f mysql remove
+#RUN update-rc.d mysql enable
+RUN update-rc.d mysql defaults
 RUN service mysql start
 CMD ["/run.sh"]
 CMD ["mysqld"]
