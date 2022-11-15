@@ -18,7 +18,7 @@ RUN apt-get update
 ENV MYSQL_PWD Pwd123
 RUN echo "mysql-server mysql-server/root_password password $MYSQL_PWD" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password $MYSQL_PWD" | debconf-set-selections
-RUN apt-get -y install mariadb-server  pwgen && \
+RUN apt-get -y install mariadb-server  pwgen supervisor && \
     rm -rf /var/lib/apt/lists/* && \
     cp /etc/mysql/my.cnf /usr/share/mysql/my-default.cnf && \
     mysql_install_db > /dev/null 2>&1  && \
