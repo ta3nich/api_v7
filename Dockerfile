@@ -88,7 +88,9 @@ RUN service mysql start
 #CMD ["/run.sh"]
 #CMD ["mysqld"]
 #CMD service mysql start
-ENTRYPOINT ["/run.sh"]
+RUN update-rc.d supervisor enable
+
+CMD ["/run.sh"]
 
 CMD [ "node", "server.js" ]
 
