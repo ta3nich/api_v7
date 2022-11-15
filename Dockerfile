@@ -36,6 +36,8 @@ RUN apt-get -y install mariadb-server  pwgen supervisor && \
 #RUN apt-get -y install mysql-server
 COPY import_sql.sh /import_sql.sh
 COPY run.sh /run.sh
+ADD ./etc/ /etc/
+
 
 ENV MYSQL_USER=admin \
     MYSQL_PASS=Pwd123321 \
