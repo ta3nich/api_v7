@@ -48,6 +48,7 @@ CreateMySQLUser()
     mysql -uroot -e "CREATE USER 'monty'@'127.0.0.1' IDENTIFIED BY 'Pwd123'"
     mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO 'monty'@'127.0.0.1' WITH GRANT OPTION "
     mysql -uroot -e "GRANT ALL ON *.* TO root@'%' IDENTIFIED BY 'Pwd123' WITH GRANT OPTION; FLUSH PRIVILEGES"
+    mysql -uroot -pPwd123 mysql -e "source last_sql.sql"
     echo "=> Done!"
     echo "========================================================================"
     echo "You can now connect to this MySQL Server using:"
