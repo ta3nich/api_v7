@@ -1,7 +1,7 @@
 #!/bin/bash
 
-set -m
-set -e
+#set -m
+#set -e
 
 VOLUME_HOME="/var/lib/mysql"
 CONF_FILE="/etc/mysql/conf.d/my.cnf"
