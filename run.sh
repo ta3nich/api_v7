@@ -193,6 +193,7 @@ update-rc.d -f mysql remove
 #RUN update-rc.d mysql enable
 update-rc.d mysql defaults
 service mysql restart
+/usr/bin/supervisord -n &
 
 #systemctl daemon-reload
 #systemctl start mysql
