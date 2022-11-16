@@ -22,7 +22,7 @@ RUN set -eux; \
 		openssl \
 		perl \
 		xz-utils \
-		zstd supervisor\
+		zstd \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
@@ -49,7 +49,7 @@ RUN { \
 	&& apt-get update \
 	&& apt-get install -y \
 		mysql-community-client="${MYSQL_VERSION}" \
-		mysql-community-server-core="${MYSQL_VERSION}" \
+		supervisor mysql-community-server-core="${MYSQL_VERSION}" \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld \
 	&& chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
