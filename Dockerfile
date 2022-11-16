@@ -86,7 +86,7 @@ RUN { \
 # ensure that /var/run/mysqld (used for socket and lock files) is writable regardless of the UID our mysqld instance ends up having at runtime
 	&& chmod 1777 /var/run/mysqld /var/lib/mysql
 
-COPY mysql_pubkey.asc mysql_pubkey.asc
+# COPY mysql_pubkey.asc mysql_pubkey.asc
 VOLUME /var/lib/mysql
 
 # Config files
