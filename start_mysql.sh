@@ -1,6 +1,6 @@
 service mysql start
 #echo "=> Creating MySQL user ${MYSQL_USER} with ${_word} password"
-#mysql -uroot -pPwd123 mysql -e "source last_sql.sql"
+#mysql -uroot -pPwd123 mysql -e "source last_sql.sql" k
 #echo "CREATE USER 'root'@'localhost'" | mysql -u root
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';.
 
