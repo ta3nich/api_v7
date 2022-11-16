@@ -5,6 +5,7 @@ ADD ./etc/ /etc/
 RUN groupadd -r mysql && useradd -r -g mysql mysql
 
 RUN apt-get update && apt-get install -y --no-install-recommends lsb-release  debian-keyring debian-archive-keyring gnupg dirmngr && rm -rf /var/lib/apt/lists/*
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y supervisor 
 RUN mkdir /docker-entrypoint-initdb.d
