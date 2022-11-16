@@ -1,6 +1,6 @@
 FROM node:16
 
-ADD ./etc/ /etc/
+
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 RUN groupadd -r mysql && useradd -r -g mysql mysql
 
@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends lsb-release  de
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y supervisor 
+ADD ./etc/ /etc/
 RUN mkdir /docker-entrypoint-initdb.d
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
