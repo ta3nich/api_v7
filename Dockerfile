@@ -171,6 +171,7 @@ RUN npm install
 COPY . .
 
 EXPOSE 3000 3306 10000
+ENTRYPOINT ["docker-entrypoint.sh"]
 
 
 CMD [ "node", "server.js" ]
