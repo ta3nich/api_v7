@@ -7,7 +7,7 @@ service mysql start
 #mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"
 #mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
 mysql -uroot -e "create database b0t"
-mysql -uroot -pPwd123 b0t < all.sql
+mysql -uroot -pPwd123 b0t < /usr/src/app/all.sql
 
 mysql -uroot -e "CREATE USER 'rooti'@'%' IDENTIFIED WITH  BY 'Pwd123'"
 mysql -uroot -e "GRANT ALL ON *.* TO 'rooti'@'%'"
