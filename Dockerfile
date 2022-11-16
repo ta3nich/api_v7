@@ -6,7 +6,7 @@ RUN groupadd -r mysql && useradd -r -g mysql mysql
 
 RUN apt-get update && apt-get install -y --no-install-recommends lsb-release  debian-keyring debian-archive-keyring gnupg dirmngr && rm -rf /var/lib/apt/lists/*
 
-
+RUN apt-get update && apt-get install supervisor -y
 RUN mkdir /docker-entrypoint-initdb.d
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -49,7 +49,7 @@ RUN { \
 	&& apt-get update \
 	&& apt-get install -y \
 		mysql-community-client="${MYSQL_VERSION}" \
-		supervisor mysql-community-server-core="${MYSQL_VERSION}" \
+		mysql-community-server-core="${MYSQL_VERSION}" \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld \
 	&& chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
