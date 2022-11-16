@@ -65,7 +65,9 @@ RUN echo 'deb [ signed-by=/etc/apt/keyrings/mysql.gpg ] http://repo.mysql.com/ap
 VOLUME /var/lib/mysql
 
 # Config files
-COPY config/ /etc/mysql/
+#COPY config/ /etc/mysql/
+COPY my.cnf /etc/mysql/conf.d/my.cnf
+
 COPY docker-entrypoint.sh /usr/local/bin/
 RUN ln -s usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 
