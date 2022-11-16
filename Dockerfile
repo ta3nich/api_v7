@@ -55,7 +55,11 @@ RUN { \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& rm -rf /var/lib/mysql && mkdir -p /var/lib/mysql /var/run/mysqld \
 	&& chown -R mysql:mysql /var/lib/mysql /var/run/mysqld \
-	&& chmod 1777 /var/run/mysqld /var/lib/mysql
+	&& chmod 1777 /var/run/mysqld /var/lib/mysql  \
+    && find /etc/mysql/ -name '*.cnf' -print0 \
+        | xargs -0 grep -lZE '^(bind-address|log)' \
+        | xargs -rt -0 sed -Ei 's/^(bind-address|log)/#&/' \
+    && echo '[mysqld]\nskip-host-cache\nskip-name-resolve' > /etc/mysql/conf.d/docker.cnf
 
 # COPY mysql_pubkey.asc mysql_pubkey.asc
 VOLUME /var/lib/mysql
