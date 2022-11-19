@@ -208,6 +208,31 @@ Customer.getAll = result => {
   });
 };
 
+/////////////////////////////////////////////////////////////////
+
+Customer.updateById4 = (id, customer, result) => {
+  sql.query(
+    "UPDATE gc_acc SET acc_status = ? WHERE account_id = ?",
+    ["NA", id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "gc_acc not_found" }, null);
+        return;
+      }
+
+      console.log("updated gc_acc acc_status: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
+
 
 /////////////////////////////////////////////////////////////////
 
@@ -259,6 +284,7 @@ Customer.updateById2 = (id, customer, result) => {
   );
 };
 
+/////////////////////////////////////////////////////////////////
 
 
 
@@ -267,8 +293,7 @@ Customer.updateById2 = (id, customer, result) => {
 
 
 
-
-
+/////////////////////////////////////////////////////////////////
 Customer.updateById = (id, customer, result) => {
   sql.query(
     "UPDATE customers SET used = ? WHERE id = ?",
@@ -291,7 +316,7 @@ Customer.updateById = (id, customer, result) => {
     }
   );
 };
-
+/////////////////////////////////////////////////////////////////
 Customer.remove = (id, result) => {
   sql.query("DELETE FROM customers WHERE id = ?", id, (err, res) => {
     if (err) {
@@ -310,7 +335,7 @@ Customer.remove = (id, result) => {
     result(null, res);
   });
 };
-
+/////////////////////////////////////////////////////////////////
 Customer.removeAll = result => {
   sql.query("DELETE FROM customers", (err, res) => {
     if (err) {
@@ -323,5 +348,5 @@ Customer.removeAll = result => {
     result(null, res);
   });
 };
-
+/////////////////////////////////////////////////////////////////
 module.exports = Customer;
