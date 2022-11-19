@@ -154,6 +154,39 @@ exports.findOne_nord = (req, res) => {
 };
 
 /////////////////////////////////////////////////////////////////////////////////////////////////:
+exports.active_gc_acc = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "gc_acc : Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  Customer.updateById5(
+    req.params.customerId5,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `active_gc_acc : Not found Customer with id ${req.params.customerId5}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "active_gc_acc : Error updating Customer with id " + req.params.customerId5
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
 exports.update_gc_acc = (req, res) => {
   // Validate Request
   if (!req.body) {

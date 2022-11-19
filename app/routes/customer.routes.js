@@ -6,6 +6,7 @@ module.exports = app => {
 
   app.get("/google_account/active", customers.get_active_google);
   app.put("/google_account/update/:customerId4", customers.update_gc_acc);
+  app.put("/google_account/activate/:customerId5", customers.active_gc_acc);
 
   //////////////////////////////////////////////////////////////////////////////////
 

@@ -210,6 +210,33 @@ Customer.getAll = result => {
 
 /////////////////////////////////////////////////////////////////
 
+Customer.updateById5 = (id, customer, result) => {
+  sql.query(
+    "UPDATE gc_acc SET acc_status = ? WHERE account_id = ?",
+    ["A", id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "gc_acc not_found" }, null);
+        return;
+      }
+
+      console.log("updated gc_acc acc_status: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
+
 Customer.updateById4 = (id, customer, result) => {
   sql.query(
     "UPDATE gc_acc SET acc_status = ? WHERE account_id = ?",
