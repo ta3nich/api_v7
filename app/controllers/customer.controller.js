@@ -163,7 +163,38 @@ exports.findOne_nord = (req, res) => {
     } else res.send(data);
   });
 };
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+exports.active_gc_acc_van = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "gc_acc : Content can not be empty!"
+    });
+  }
 
+  console.log(req.body);
+
+  Customer.updateById8(
+    req.params.customerId8,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `active_gc_acc : Not found Customer with id ${req.params.customerId8}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "active_gc_acc : Error updating Customer with id " + req.params.customerId8
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
 /////////////////////////////////////////////////////////////////////////////////////////////////:
 exports.active_gc_acc = (req, res) => {
   // Validate Request
@@ -220,6 +251,38 @@ exports.update_gc_acc = (req, res) => {
         } else {
           res.status(500).send({
             message: "update_gc_acc : Error updating Customer with id " + req.params.customerId4
+          });
+        }
+      } else res.send(data);
+    }
+  );
+};
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+/////////////////////////////////////////////////////////////////////////////////////////////////:
+exports.update_gc_acc_van = (req, res) => {
+  // Validate Request
+  if (!req.body) {
+    res.status(400).send({
+      message: "gc_acc_van : Content can not be empty!"
+    });
+  }
+
+  console.log(req.body);
+
+  Customer.updateById6(
+    req.params.customerId6,
+    new Customer(req.body),
+    (err, data) => {
+      if (err) {
+        if (err.kind === "not_found") {
+          res.status(404).send({
+            message: `update_gc_acc_van : Not found Customer with id ${req.params.customerId6}.`
+          });
+        } else {
+          res.status(500).send({
+            message: "update_gc_acc_van : Error updating Customer with id " + req.params.customerId6
           });
         }
       } else res.send(data);

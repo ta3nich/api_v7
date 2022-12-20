@@ -220,6 +220,35 @@ Customer.getAll = result => {
   });
 };
 
+
+/////////////////////////////////////////////////////////////////
+
+Customer.updateById8 = (id, customer, result) => {
+  sql.query(
+    "UPDATE gc_acc SET acc_status = ? WHERE account_id = ?",
+    ["A", id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "gc_acc_van not_found" }, null);
+        return;
+      }
+
+      console.log("updated gc_acc_van acc_status: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
+
+
+//////** "UPDATE `nord_list2` SET  `used` = 'n'"
+/////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 Customer.updateById5 = (id, customer, result) => {
@@ -246,12 +275,39 @@ Customer.updateById5 = (id, customer, result) => {
 };
 
 
+//////** "UPDATE `nord_list2` SET  `used` = 'n'"
+/////////////////////////////////////////////////////////////////
+
+Customer.updateById6 = (id, customer, result) => {
+  sql.query(
+    "UPDATE gc_acc SET acc_status = ? WHERE `gc_account_type` = 'van'",
+    ["NA", id],
+    (err, res) => {
+      if (err) {
+        console.log("error: ", err);
+        result(null, err);
+        return;
+      }
+
+      if (res.affectedRows == 0) {
+        // not found Customer with the id
+        result({ kind: "gc_acc not_found" }, null);
+        return;
+      }
+
+      console.log("updated gc_acc_van acc_status: ", { id: id });
+      result(null, { id: id });
+    }
+  );
+};
+
+
 /////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////
 
 Customer.updateById4 = (id, customer, result) => {
   sql.query(
-    "UPDATE gc_acc SET acc_status = ? WHERE account_id = ?",
+    "UPDATE gc_acc SET acc_status = ? WHERE `gc_account_type` = 'nord'",
     ["NA", id],
     (err, res) => {
       if (err) {
