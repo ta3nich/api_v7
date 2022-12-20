@@ -7,17 +7,29 @@ const Customer = function(customer) {
   //this.active = customer.active;
 };
 
-
-
-Customer.get_active_google = result => {
-  sql.query("SELECT * FROM gc_acc WHERE (`acc_status`='A') ORDER BY RAND() LIMIT 1 ", (err, res) => {
+Customer.get_active_google_van = result => {
+  sql.query("SELECT * FROM gc_acc WHERE (`acc_status`='A' AND `gc_account_type`='van') ORDER BY RAND() LIMIT 1 ", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
       return;
     }
 
-    console.log("get_active_google: ", res);
+    console.log("get_active_google van: ", res);
+    result(null, res);
+  });
+};
+
+
+Customer.get_active_google = result => {
+  sql.query("SELECT * FROM gc_acc WHERE (`acc_status`='A' AND `gc_account_type`='nord') ORDER BY RAND() LIMIT 1 ", (err, res) => {
+    if (err) {
+      console.log("error: ", err);
+      result(null, err);
+      return;
+    }
+
+    console.log("get_active_google nord : ", res);
     result(null, res);
   });
 };

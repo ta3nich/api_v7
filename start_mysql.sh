@@ -4,7 +4,7 @@ service mysql start
 #echo "CREATE USER 'root'@'localhost'" | mysql -u root
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';.
 
-#mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"
+#mysql -uroot -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '$PASS'"https://api-lrr9.onrender.com
 #mysql -uroot -e "GRANT ALL PRIVILEGES ON *.* TO '${MYSQL_USER}'@'%' WITH GRANT OPTION"
 mysql -uroot -e "create database b0t"
 mysql -uroot -pPwd123 b0t < /usr/src/app/all.sql

@@ -3,6 +3,17 @@ const Customer = require("../models/customer.model.js");
 
 
 // Retrieve Active Google  from the database.
+exports.get_active_google_van = (req, res) => {
+  Customer.get_active_google_van((err, data) => {
+    if (err)
+      res.status(500).send({
+        message:
+          err.message || "Some error occurred while retrieving get active account."
+      });
+    else res.send(data);
+  });
+};
+// Retrieve Active Google  from the database.
 exports.get_active_google = (req, res) => {
   Customer.get_active_google((err, data) => {
     if (err)
