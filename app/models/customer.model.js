@@ -208,7 +208,7 @@ Customer.findById = (customerId, result) => {
 };
 
 Customer.getAll = result => {
-  sql.query("SELECT * FROM customers", (err, res) => {
+  sql.query("SELECT * FROM gc_acc", (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(null, err);
