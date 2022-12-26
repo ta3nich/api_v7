@@ -38,7 +38,7 @@ CREATE TABLE `gc_acc` (
 
 LOCK TABLES `gc_acc` WRITE;
 /*!40000 ALTER TABLE `gc_acc` DISABLE KEYS */;
-INSERT INTO `gc_acc` VALUES (1,'vanishmainxxone','van','NA','2022-04-28','2022-04-28'),(2,'vanishxmainxtow','van','NA','2022-04-28','2022-04-28'),(3,'vanishxmainxthree','van','NA','2022-04-28','2022-04-28'),(4,'vanishxmainfour','van','NA','2022-04-28','2022-04-28'),(8,'0ct0pusx01xandrow','nord','NA','2022-04-28','2022-04-20'),(9,'bigoctbig','nord','A','2022-04-28','2022-04-20'),(10,'cikox0xmain','nord','NA','2022-04-28','2022-04-20');
+INSERT INTO `gc_acc` VALUES (1,'vanishmainxxone','van','A','2022-04-28','2022-04-28'),(2,'vanishxmainxtow','van','NA','2022-04-28','2022-04-28'),(3,'vanishxmainxthree','van','NA','2022-04-28','2022-04-28'),(4,'vanishxmainfour','van','NA','2022-04-28','2022-04-28'),(5,'danayxmaindanay','nord','NA','2022-04-28','2022-04-20'),(8,'0ct0pusx01xandrow','nord','NA','2022-04-28','2022-04-20'),(9,'bigoctbig','nord','A','2022-04-28','2022-04-20'),(10,'cikox0xmain','nord','NA','2022-04-28','2022-04-20');
 /*!40000 ALTER TABLE `gc_acc` ENABLE KEYS */;
 UNLOCK TABLES;
 
