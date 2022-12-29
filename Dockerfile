@@ -28,15 +28,6 @@ RUN set -eux; \
 	; \
 	rm -rf /var/lib/apt/lists/*
 
-RUN set -eux; \
-# gpg: key 3A79BD29: public key "MySQL Release Engineering <mysql-build@oss.oracle.com>" imported
-	key='859BE8D7C586F538430B19C2467B942D3A79BD29'; \
-	export GNUPGHOME="$(mktemp -d)"; \
-	gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "$key"; \
-	mkdir -p /etc/apt/keyrings; \
-	gpg --batch --export "$key" > /etc/apt/keyrings/mysql.gpg; \
-	gpgconf --kill all; \
-	rm -rf "$GNUPGHOME"
 
 ENV MYSQL_MAJOR 8.0
 ENV MYSQL_VERSION 8.0.31-1debian10
